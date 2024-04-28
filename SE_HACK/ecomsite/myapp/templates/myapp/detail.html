@@ -1,0 +1,120 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+        <title>Details</title>
+        <!-- <link rel="stylesheet" href="{% static 'myapp/detail_style.css' %}"> -->
+    {% endblock %}
+    
+</head>
+<body>
+
+    {% block body %}
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-3 offset-md-1">
+                    <img width="300px" class="myCard" src="{{ product.image.url }}" alt="{{ product.type }}">
+                </div>
+                <div class="col-md-6 offset-md-1">
+                    <h1>Type: {{ product.type }}</h1>
+                    <h2>Color: {{ product.color }}</h2>
+                    <h3>Gender: {{ product.gender }}</h3>
+                    <h3>Season: {{ product.season }}</h3>
+                    <h3>Price: ${{ product.price }}</h3>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-info" type="submit">Purchase</button>
+                    </form>
+                    <hr>
+                    <a type="button" class="btn btn-outline-info" href="{% url 'myapp:list' men_women title %}">Go Back</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2>Similar Products</h2>
+            <div class="row my-5">
+                {% if similars %}
+                {% for similar in similars %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ similar.image.url }}" class="card-img-top" alt="{{ similar.type }}">
+                        <div class="card-body">
+                            <div class="card-title">{{ similar.type }}</div>
+                            <div class="card-text">{{ similar.color }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        <br>
+        <br>
+        <h2>To complete the outfit</h2>
+            <div class="row my-5">
+                {% if recommended_bottom %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ recommended_bottom.image.url }}" class="card-img-top" alt="{{ recommended_bottom.type }}">
+                        <div class="card-body">
+                            <div class="card-title">{{ recommended_bottom.type }}</div>
+                            <div class="card-text">{{ recommended_bottom.color }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if recommended_top %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ recommended_top.image.url }}" class="card-img-top" alt="{{ recommended_top.type }}">
+                        <div class="card-body">
+                            <div class="card-title">{{ recommended_top.type }}</div>
+                            <div class="card-text">{{ recommended_top.color }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if recommended_footwear %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ recommended_footwear.image.url }}" class="card-img-top" alt="{{ recommended_footwear.type }}">
+                        <div class="card-body">
+                            <div class="card-title">{{ recommended_footwear.type }}</div>
+                            <div class="card-text">{{ recommended_footwear.color }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if recommended_acc %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ recommended_acc.image.url }}" class="card-img-top" alt="{{ recommended_acc.type }}">
+                        <div class="card-body">
+                            <div class="card-title">{{ recommended_acc.type }}</div>
+                            <div class="card-text">{{ recommended_acc.color }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    
+    
+
+    {% endblock %}
+
+        <!-- <h1>{{ item.id }} -- {{ item.item_name }}</h1>
+        <h2>{{ item.item_desc }}</h2>
+        <h3>Price : {{ item.item_price }}</h3>
+        <hr />
+        <a href="{% url 'food:home' %}">Go Back</a> -->
+
+    
+    
+</body>
+</html>
+
+
