@@ -1,0 +1,76 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>Second Page</title>
+    <link rel="stylesheet" href="{% static 'myapp/second_style.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+    {% block body %}
+
+    <div class="gallery">
+        <div class="content">
+            <img src="{{ top }}" height="50%">
+            <h3>Tops</h3>
+            <p>"Elevate your look with our highly stylish range of tops. From casual tees to elegant blouses, find the perfect piece to complete any outfit."</p>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+            <a href="{% url 'myapp:list' men_women 0 %}"><button class="buy-1">Go</button></a>
+        </div>
+        <div class="content">
+            <img src="{{ bottom }}" height="50%">
+            <h3>Bottom</h3>
+            <p>"Discover the perfect fit with our collection of bottoms. From classic jeans to tailored trousers, embrace comfort and style in every step."</p>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+            <a href="{% url 'myapp:list' men_women 1 %}"><button class="buy-1">Go</button></a>
+        </div>
+        <div class="content">
+            <img src="{{ shoes }}" height="50%">
+            <h3>Shoes</h3>
+            <p>"Step into style with our versatile range of shoes. From sleek sneakers to sophisticated heels, find the perfect pair to complement any ensemble."</p>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+            <a href="{% url 'myapp:list' men_women 2 %}"><button class="buy-1">Go</button></a>
+        </div>
+        <div class="content">
+            <img src="{{ acc }}" height="50%">
+            <h3>Accessories</h3>
+            <p>"Add the finishing touch to your look with our selection of accessories. From statement jewelry to practical bags, elevate your style with our curated collection."</p>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star checked"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+            <a href="{% url 'myapp:list' men_women 3 %}"><button class="buy-1">Go</button></a>
+        </div>
+    </div>
+
+
+    {% endblock %}
+    
+</body>
+</html>
